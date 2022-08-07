@@ -9,17 +9,21 @@ import {CreateTransaction} from './Components/CreateTransaction'
 import {TransactionList} from './Components/TransactionList'
 import { Balance } from './Components/Balance';
 
+import {BalanceProvider} from './Context/BalanceContext'
+
 function App() {
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth='md'>
-        <Header />
-        <Balance />
-        <CreateTransaction />
-        <br />
-        <hr />
-        <TransactionList />
+        <BalanceProvider>
+          <Header />
+          <Balance />
+          <CreateTransaction />
+          <br />
+          <hr />
+          <TransactionList />
+        </BalanceProvider>
       </Container>
     </React.Fragment>
   );
