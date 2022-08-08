@@ -21,7 +21,8 @@ export const CreateTransaction = () => {
     e.preventDefault()
     // not the best method to create ID but it works for now
     const id = Math.floor(Math.random() * 100000000)
-    addTransaction({id,text,amount,income})
+    const finalAmount = income === false ? amount * -1:amount
+    addTransaction({id,text,amount:finalAmount,income})
   }
   return (
     <form onSubmit={handleSubmit}>  
@@ -31,10 +32,10 @@ export const CreateTransaction = () => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
-            <TextField fullWidth label="Text" id="text" value={text} onChange={e => setText(e.target.value)}/>
+            <TextField fullWidth label="Text" id="text" value={text} onChange={e => setText(e.target.value)} required/>
           </Grid>
           <Grid item xs={12} md={4}>
-            <TextField fullWidth label="Amount" id="amount" type="number" value={amount} onChange={e => setAmount(e.target.value)} />
+            <TextField fullWidth label="Amount" id="amount" type="number" value={amount} onChange={e => setAmount(Math.abs(parseInt(e.target.value)))} required/>
           </Grid>
           <Grid item xs={12} md={4}>
             <FormControl fullWidth>

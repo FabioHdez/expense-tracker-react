@@ -7,7 +7,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+
+import { Transaction } from './Transaction';
 
 import { BalanceContext } from '../Context/BalanceContext';
 
@@ -31,16 +32,7 @@ export const TransactionList = () => {
         </TableHead>
         <TableBody>
           {transactions.map((transaction) => (
-            <TableRow
-              key={transaction.id}
-            >
-              <TableCell component="th" scope="transaction">
-                {transaction.text}
-              </TableCell>
-              <TableCell align="left">${transaction.amount}</TableCell>
-              <TableCell align="left">{transaction.income === true ? 'Income':'Expense'}</TableCell>
-              <TableCell align="left"><Button variant="outlined">Edit</Button></TableCell>
-            </TableRow>
+            <Transaction transaction = {transaction}/>
           ))}
         </TableBody>
       </Table>
