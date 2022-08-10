@@ -1,7 +1,6 @@
 import React, {useContext} from 'react'
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+import {Typography,Paper,Grid} from '@mui/material';
+
 
 import { BalanceContext } from '../Context/BalanceContext';
 
@@ -12,13 +11,12 @@ export const Balance = () => {
   return (
     <Grid container spacing={2}  justifyContent="center">
     <Grid item xs={12} md={8}>
-      <Paper elevation = {1}>
+      <Paper elevation = {4}>
       <Typography variant="h4" gutterBottom component="div" align='center'>
         Current Balance: {total < 0 ? '-':''}${Math.abs(total)}
       </Typography>
       </Paper>
     </Grid>
   </Grid>
-
   )
 }

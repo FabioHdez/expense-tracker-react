@@ -1,15 +1,16 @@
 import React, {useState, useContext} from 'react'
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
+import {
+  Box,
+  Button,
+  Typography,
+  Modal,
+  Grid,
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel
+} from '@mui/material'
 
 import {BalanceContext} from '../Context/BalanceContext'
 const style = {

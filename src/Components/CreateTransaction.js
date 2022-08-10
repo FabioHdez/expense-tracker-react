@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react'
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import {
+  TextField,
+  Box,
+  Grid,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormControl,
+  Button,
+  Typography
+} from '@mui/material';
+
 
 import {BalanceContext} from '../Context/BalanceContext'
 

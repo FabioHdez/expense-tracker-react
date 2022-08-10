@@ -1,8 +1,7 @@
 import './App.css';
-
 import React from 'react'
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
+import {CssBaseline,Container} from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import {Header} from './Components/Header'
 import {CreateTransaction} from './Components/CreateTransaction'
@@ -11,9 +10,16 @@ import { Balance } from './Components/Balance';
 
 import {BalanceProvider} from './Context/BalanceContext'
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'light',
+  },
+});
+
+
 function App() {
   return (
-    <React.Fragment>
+    <ThemeProvider theme = {darkTheme}>
       <CssBaseline />
       <Container maxWidth='md'>
         <BalanceProvider>
@@ -25,7 +31,7 @@ function App() {
           <TransactionList />
         </BalanceProvider>
       </Container>
-    </React.Fragment>
+    </ThemeProvider>
   );
 }
 
