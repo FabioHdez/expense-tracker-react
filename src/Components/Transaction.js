@@ -15,7 +15,7 @@ export const Transaction = ({transaction}) => {
               </TableCell>
               <TableCell align="left">{transaction.income === false ? '-':''}${Math.abs(transaction.amount)}</TableCell>
               <TableCell align="left">{transaction.income === true ? 'Income':'Expense'}</TableCell>
-              <TableCell align="left"><TransactionEdit /></TableCell>
+              <TableCell align="left"><TransactionEdit transaction = {transaction} /></TableCell>
     </TableRow>
   )
 }

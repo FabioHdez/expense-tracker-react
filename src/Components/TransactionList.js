@@ -14,7 +14,6 @@ import { BalanceContext } from '../Context/BalanceContext';
 
 export const TransactionList = () => {
   const { transactions } = useContext(BalanceContext)
-  console.log(transactions)
   return (
   <>    
     <Typography variant="h5" gutterBottom component="div" align='left'>
@@ -32,7 +31,7 @@ export const TransactionList = () => {
         </TableHead>
         <TableBody>
           {transactions.map((transaction) => (
-            <Transaction transaction = {transaction}/>
+            <Transaction key={transaction.id} transaction = {transaction}/>
           ))}
         </TableBody>
       </Table>

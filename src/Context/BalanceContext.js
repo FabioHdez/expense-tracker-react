@@ -15,6 +15,17 @@ function transactionReducer(state,action){
                 ...state,
                 transactions: [action.payload, ...state.transactions]
             }
+        case 'DELETE_TRANSACTION':
+            return {
+                ...state,
+                transactions: state.transactions.filter(transaction => transaction.id !== action.payload)
+            }
+        case 'EDIT_TRANSACTION':
+            const newTransactionList = state.transactions.filter(transaction => transaction.id !== action.payload.id)
+                return {
+                    ...state,
+                    transactions: [action.payload, ...newTransactionList]
+                }
         default:
             return state
     }
@@ -29,10 +40,24 @@ export const BalanceProvider = ({children}) => {
             payload: transaction
         })
     }
+    function deleteTransaction(transactionId){
+        dispatch({
+            type:'DELETE_TRANSACTION',
+            payload: transactionId
+        })
+    }
+    function editTransaction(transaction){
+        dispatch({
+            type:'EDIT_TRANSACTION',
+            payload: transaction
+        })
+    }
     return(
         <BalanceContext.Provider value={{
             transactions: transactions.transactions,
             addTransaction,
+            deleteTransaction,
+            editTransaction
             }}>
             {children}
         </BalanceContext.Provider>
